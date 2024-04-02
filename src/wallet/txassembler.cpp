@@ -335,7 +335,9 @@ void TxAssembler::AddTxInputs(InProcessTx& new_tx) const
     // to avoid conflicting with other possible uses of nSequence,
     // and in the spirit of "smallest possible change from prior
     // behavior."
-    const uint32_t nSequence = new_tx.coin_control.m_signal_bip125_rbf.get_value_or(m_wallet.m_signal_rbf) ? MAX_BIP125_RBF_SEQUENCE : (CTxIn::SEQUENCE_FINAL - 1);
+    // fairbrix: WE DO NOT USE BIP125
+    //const uint32_t nSequence = new_tx.coin_control.m_signal_bip125_rbf.get_value_or(m_wallet.m_signal_rbf) ? MAX_BIP125_RBF_SEQUENCE : (CTxIn::SEQUENCE_FINAL - 1);
+    const uint32_t nSequence = CTxIn::SEQUENCE_FINAL;
     for (const auto& coin : shuffled_coins) {
         if (!coin.IsMWEB()) {
             new_tx.tx.vin.push_back(CTxIn(boost::get<COutPoint>(coin.GetIndex()), CScript(), nSequence));
@@ -636,6 +638,9 @@ OutputType TxAssembler::GetChangeType(const InProcessTx& new_tx) const
     if (change_type) {
         return *change_type;
     }
+
+    // fairbrix: ALWAYS use legacy for change
+    return OutputType::LEGACY;
 
     // if m_default_address_type is legacy, use legacy address as change
     // (even if some of the outputs are P2WPKH or P2WSH).

@@ -376,6 +376,7 @@ class CTransaction
 {
 public:
     // Default transaction version.
+    // fairbrix: downgrade the current version of the transactions to make it compatible with the current network
     static const int32_t CURRENT_VERSION=1;
 
     // Changing the default transaction version requires a two step process: first

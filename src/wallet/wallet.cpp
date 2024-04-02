@@ -3858,10 +3858,10 @@ std::shared_ptr<CWallet> CWallet::Create(interfaces::Chain& chain, const std::st
         }
     }
 
-    if (!gArgs.GetArg("-changetype", "").empty()) {
+    if (!gArgs.GetArg("-changetype", "legacy").empty()) {
         OutputType out_type;
-        if (!ParseOutputType(gArgs.GetArg("-changetype", ""), out_type)) {
-            error = strprintf(_("Unknown change type '%s'"), gArgs.GetArg("-changetype", ""));
+        if (!ParseOutputType(gArgs.GetArg("-changetype", "legacy"), out_type)) {
+            error = strprintf(_("Unknown change type '%s'"), gArgs.GetArg("-changetype", "legacy"));
             return nullptr;
         }
         walletInstance->m_default_change_type = out_type;
