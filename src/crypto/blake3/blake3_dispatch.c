@@ -4,6 +4,11 @@
 
 #include "blake3_impl.h"
 
+#define BLAKE3_NO_AVX512 1
+#define BLAKE3_NO_AVX2 1
+#define BLAKE3_NO_SSE41 1
+#define BLAKE3_NO_SSE2 1
+
 #if defined(IS_X86)
 #if defined(_MSC_VER)
 #include <intrin.h>
