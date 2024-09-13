@@ -309,19 +309,19 @@ jobs:
 
       - name: Zip Windows Builds
         if: ${{ matrix.config.host == 'x86_64-w64-mingw32' }}
-        run: zip -rj fairbrix-Windows.zip /home/runner/work/fairbrix-new/fairbrix-new/build/fairbrix-x86_64-w64-mingw32/release
+        run: zip -rj fairbrix-Windows.zip /home/runner/work/fairbrix/fairbrix/build/fairbrix-x86_64-w64-mingw32/release
 
       - name: Zip Linux Builds
         if: ${{ matrix.config.host == 'x86_64-unknown-linux-gnu' }}
-        run: zip -rj fairbrix-Linux.zip /home/runner/work/fairbrix-new/fairbrix-new/${{github.run_number}}-x86_64-unknown-linux-gnu/bin
+        run: zip -rj fairbrix-Linux.zip /home/runner/work/fairbrix/fairbrix/${{github.run_number}}-x86_64-unknown-linux-gnu/bin
 
       - name: Zip AArch64 Builds
         if: ${{ matrix.config.host == 'aarch64-linux-gnu' }}
-        run: zip -rj fairbrix-AArch.zip /home/runner/work/fairbrix-new/fairbrix-new/${{github.run_number}}-aarch64-linux-gnu/bin
+        run: zip -rj fairbrix-AArch.zip /home/runner/work/fairbrix/fairbrix/${{github.run_number}}-aarch64-linux-gnu/bin
 
       - name: Zip Arm32 Builds
         if: ${{ matrix.config.host == 'arm-linux-gnueabihf' }}
-        run: zip -rj fairbrix-Arm32.zip /home/runner/work/fairbrix-new/fairbrix-new/${{github.run_number}}-arm-linux-gnueabihf/bin
+        run: zip -rj fairbrix-Arm32.zip /home/runner/work/fairbrix/fairbrix/${{github.run_number}}-arm-linux-gnueabihf/bin
 
       - name: Upload Release Windows Builds
         uses: softprops/action-gh-release@v0.1.15
@@ -332,7 +332,7 @@ jobs:
           prerelease: false
           files: |
             fairbrix-Windows.zip
-            /home/runner/work/fairbrix-new/fairbrix-new/build/fairbrix-x86_64-w64-mingw32/fairbrix-*-setup-unsigned.exe
+            /home/runner/work/fairbrix/fairbrix/build/fairbrix-x86_64-w64-mingw32/fairbrix-*-setup-unsigned.exe
 
       - name: Upload PreRelease Windows Builds
         uses: softprops/action-gh-release@v0.1.15
@@ -343,7 +343,7 @@ jobs:
           prerelease: true
           files: |
             fairbrix-Windows.zip
-            /home/runner/work/fairbrix-new/fairbrix-new/build/fairbrix-x86_64-w64-mingw32/fairbrix-*-setup-unsigned.exe
+            /home/runner/work/fairbrix/fairbrix/build/fairbrix-x86_64-w64-mingw32/fairbrix-*-setup-unsigned.exe
 
       - name: Upload Release Linux Builds
         uses: softprops/action-gh-release@v0.1.15
@@ -370,7 +370,7 @@ jobs:
           name: ${{ github.event.inputs.release-name }}
           tag_name: ${{ github.event.inputs.tags }}
           prerelease: false
-          files: /home/runner/work/fairbrix-new/fairbrix-new/build/fairbrix-x86_64-apple-darwin16/fairbrix-Core-Beta.dmg
+          files: /home/runner/work/fairbrix/fairbrix/build/fairbrix-x86_64-apple-darwin16/fairbrix-Core-Beta.dmg
 
       - name: Upload PreRelease Mac Builds
         uses: softprops/action-gh-release@v0.1.15
@@ -379,7 +379,7 @@ jobs:
           name: ${{ github.event.inputs.release-name }}
           tag_name: ${{ github.event.inputs.tags }}
           prerelease: true
-          files: /home/runner/work/fairbrix-new/fairbrix-new/build/fairbrix-x86_64-apple-darwin16/fairbrix-Core-Beta.dmg
+          files: /home/runner/work/fairbrix/fairbrix/build/fairbrix-x86_64-apple-darwin16/fairbrix-Core-Beta.dmg
 
       - name: Upload Release AArch Builds
         uses: softprops/action-gh-release@v0.1.15
