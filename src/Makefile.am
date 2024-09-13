@@ -166,7 +166,6 @@ libmw_a_SOURCES = \
   	libmw/include/mw/mmr/MMRInfo.h \
   	libmw/include/mw/mmr/MMRUtil.h \
   	libmw/include/mw/mmr/PruneList.h \
-  	libmw/include/mw/mmr/Segment.h \
   	libmw/include/mw/models/block/Block.h \
   	libmw/include/mw/models/block/BlockUndo.h \
   	libmw/include/mw/models/block/Header.h \
@@ -235,7 +234,6 @@ libmw_a_SOURCES = \
   	libmw/src/mmr/PMMRCache.cpp \
   	libmw/src/mmr/PMMR.cpp \
   	libmw/src/mmr/PruneList.cpp \
-  	libmw/src/mmr/Segment.cpp \
   	libmw/src/models/block/Block.cpp \
   	libmw/src/models/crypto/Commitment.cpp \
   	libmw/src/models/crypto/PublicKey.cpp \
