@@ -281,7 +281,7 @@ jobs:
           make distdir VERSION=${{ matrix.config.host }}
           echo ::endgroup::
 
-          cd Fairbrix-${{ matrix.config.host }}
+          cd fairbrix-${{ matrix.config.host }}
 
           echo ::group::Configure
           ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL ${{ matrix.config.BITCOIN_CONFIG }} $PARAMS_FLAGS || ( cat config.log && false)
@@ -309,19 +309,19 @@ jobs:
 
       - name: Zip Windows Builds
         if: ${{ matrix.config.host == 'x86_64-w64-mingw32' }}
-        run: zip -rj Fairbrix-Windows.zip /home/runner/work/Fairbrix-new/Fairbrix-new/build/Fairbrix-x86_64-w64-mingw32/release
+        run: zip -rj fairbrix-Windows.zip /home/runner/work/fairbrix-new/fairbrix-new/build/fairbrix-x86_64-w64-mingw32/release
 
       - name: Zip Linux Builds
         if: ${{ matrix.config.host == 'x86_64-unknown-linux-gnu' }}
-        run: zip -rj Fairbrix-Linux.zip /home/runner/work/Fairbrix-new/Fairbrix-new/${{github.run_number}}-x86_64-unknown-linux-gnu/bin
+        run: zip -rj fairbrix-Linux.zip /home/runner/work/fairbrix-new/fairbrix-new/${{github.run_number}}-x86_64-unknown-linux-gnu/bin
 
       - name: Zip AArch64 Builds
         if: ${{ matrix.config.host == 'aarch64-linux-gnu' }}
-        run: zip -rj Fairbrix-AArch.zip /home/runner/work/Fairbrix-new/Fairbrix-new/${{github.run_number}}-aarch64-linux-gnu/bin
+        run: zip -rj fairbrix-AArch.zip /home/runner/work/fairbrix-new/fairbrix-new/${{github.run_number}}-aarch64-linux-gnu/bin
 
       - name: Zip Arm32 Builds
         if: ${{ matrix.config.host == 'arm-linux-gnueabihf' }}
-        run: zip -rj Fairbrix-Arm32.zip /home/runner/work/Fairbrix-new/Fairbrix-new/${{github.run_number}}-arm-linux-gnueabihf/bin
+        run: zip -rj fairbrix-Arm32.zip /home/runner/work/fairbrix-new/fairbrix-new/${{github.run_number}}-arm-linux-gnueabihf/bin
 
       - name: Upload Release Windows Builds
         uses: softprops/action-gh-release@v0.1.15
@@ -331,8 +331,8 @@ jobs:
           tag_name: ${{ github.event.inputs.tags }}
           prerelease: false
           files: |
-            Fairbrix-Windows.zip
-            /home/runner/work/Fairbrix-new/Fairbrix-new/build/Fairbrix-x86_64-w64-mingw32/Fairbrix-*-setup-unsigned.exe
+            fairbrix-Windows.zip
+            /home/runner/work/fairbrix-new/fairbrix-new/build/fairbrix-x86_64-w64-mingw32/fairbrix-*-setup-unsigned.exe
 
       - name: Upload PreRelease Windows Builds
         uses: softprops/action-gh-release@v0.1.15
@@ -342,8 +342,8 @@ jobs:
           tag_name: ${{ github.event.inputs.tags }}
           prerelease: true
           files: |
-            Fairbrix-Windows.zip
-            /home/runner/work/Fairbrix-new/Fairbrix-new/build/Fairbrix-x86_64-w64-mingw32/Fairbrix-*-setup-unsigned.exe
+            fairbrix-Windows.zip
+            /home/runner/work/fairbrix-new/fairbrix-new/build/fairbrix-x86_64-w64-mingw32/fairbrix-*-setup-unsigned.exe
 
       - name: Upload Release Linux Builds
         uses: softprops/action-gh-release@v0.1.15
@@ -352,7 +352,7 @@ jobs:
           name: ${{ github.event.inputs.release-name }}
           tag_name: ${{ github.event.inputs.tags }}
           prerelease: false
-          files: Fairbrix-Linux.zip
+          files: fairbrix-Linux.zip
 
       - name: Upload PreRelease Linux Builds
         uses: softprops/action-gh-release@v0.1.15
@@ -361,7 +361,7 @@ jobs:
           name: ${{ github.event.inputs.release-name }}
           tag_name: ${{ github.event.inputs.tags }}
           prerelease: true
-          files: Fairbrix-Linux.zip
+          files: fairbrix-Linux.zip
 
       - name: Upload Release Mac Builds
         uses: softprops/action-gh-release@v0.1.15
@@ -370,7 +370,7 @@ jobs:
           name: ${{ github.event.inputs.release-name }}
           tag_name: ${{ github.event.inputs.tags }}
           prerelease: false
-          files: /home/runner/work/Fairbrix-new/Fairbrix-new/build/Fairbrix-x86_64-apple-darwin16/Fairbrix-Core-Beta.dmg
+          files: /home/runner/work/fairbrix-new/fairbrix-new/build/fairbrix-x86_64-apple-darwin16/fairbrix-Core-Beta.dmg
 
       - name: Upload PreRelease Mac Builds
         uses: softprops/action-gh-release@v0.1.15
@@ -379,7 +379,7 @@ jobs:
           name: ${{ github.event.inputs.release-name }}
           tag_name: ${{ github.event.inputs.tags }}
           prerelease: true
-          files: /home/runner/work/Fairbrix-new/Fairbrix-new/build/Fairbrix-x86_64-apple-darwin16/Fairbrix-Core-Beta.dmg
+          files: /home/runner/work/fairbrix-new/fairbrix-new/build/fairbrix-x86_64-apple-darwin16/fairbrix-Core-Beta.dmg
 
       - name: Upload Release AArch Builds
         uses: softprops/action-gh-release@v0.1.15
@@ -388,7 +388,7 @@ jobs:
           name: ${{ github.event.inputs.release-name }}
           tag_name: ${{ github.event.inputs.tags }}
           prerelease: false
-          files: Fairbrix-AArch.zip
+          files: fairbrix-AArch.zip
 
       - name: Upload PreRelease AArch Builds
         uses: softprops/action-gh-release@v0.1.15
@@ -397,7 +397,7 @@ jobs:
           name: ${{ github.event.inputs.release-name }}
           tag_name: ${{ github.event.inputs.tags }}
           prerelease: true
-          files: Fairbrix-AArch.zip
+          files: fairbrix-AArch.zip
 
       - name: Upload Release Arm32 Builds
         uses: softprops/action-gh-release@v0.1.15
@@ -406,7 +406,7 @@ jobs:
           name: ${{ github.event.inputs.release-name }}
           tag_name: ${{ github.event.inputs.tags }}
           prerelease: false
-          files: Fairbrix-Arm32.zip
+          files: fairbrix-Arm32.zip
 
       - name: Upload PreRelease Arm32 Builds
         uses: softprops/action-gh-release@v0.1.15
@@ -415,4 +415,4 @@ jobs:
           name: ${{ github.event.inputs.release-name }}
           tag_name: ${{ github.event.inputs.tags }}
           prerelease: true
-          files: Fairbrix-Arm32.zip
+          files: fairbrix-Arm32.zip
