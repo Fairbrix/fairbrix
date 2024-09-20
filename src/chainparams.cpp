@@ -169,6 +169,15 @@ public:
         	{160000, uint256S("0x60c3c7d8c15a9fc9144e2329b04e3cfd7564ab7b8a36cdd799fbb137c0c3d8c1")},
         	{163185, uint256S("0x17ff28e0320ad9ad3a88aea59781c4194cb2d488a6f512f8f6634c52a1bfd6bb")},
  	        {165000, uint256S("0x7207c10a2953745431bc856edeab5577ed42e213bba9b3b6b44c438cd64cd7ff")},
+            {200000, uint256S("0x84f8e9caafc66ddbc2b9966f90f9ce678f7fb52398565b961a96725de7c39a72")},
+            {300000, uint256S("0xbb303c36fcdad3a73e1139cb35a328aba7800919ff4e30d1b400354e3479fdcc")},
+            {400000, uint256S("0x6114b34ed173c97c0a079cc73b109fb159f68130d6a7a454ec6bdc3b31e5ea94")},
+            {500000, uint256S("0xb594b16df5942b18a847be7c744b7530edd38a1d5f0717b2dc750f5b8943c36e")},
+            {600000, uint256S("0x95804336cea38a8ce730f0815309a442ddadec5ae0c399c577d08f82ab1bd6b0")},
+            {700000, uint256S("0x163c06af19b63bfa7b8a8edfa9a524df87ad43ce07c319ae921857ce0a3261da")},
+            {800000, uint256S("0xc0d3bcd037f3e7d4c7e6bf7f7ded2fdf2353fcb4d6010ced8c80e2d3d705ef48")},
+            {894500, uint256S("0x66cebc08abae5ca00bd9cc96fe82b5fba7c63ea871a53697c16df49ba387a328")},	// switch-over to Dark Gravity Wave diff algo
+            {899000, uint256S("0x0a5dcc77e839ab1f1696be664746dd558ab9405a9ecc1c0d1e79396fea7952d5")},
             }
         };
 
